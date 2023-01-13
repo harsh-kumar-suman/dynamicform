@@ -33,7 +33,7 @@ export class AppComponent {
     else
     {
       console.log("case of object, hence add to the FormArray")
-      this.addSkill(input);
+      this.addElement(input);
     }
   }
 
@@ -64,12 +64,11 @@ export class AppComponent {
     this.isSubmit = false;
     if(field.name == "h_add" && this.myForm.value['check_add']==true)
     {
-      // console.log("condition true");
       this.myForm.get('o_add')?.setValue( this.myForm.value['h_add']);
     }
   }
 
-  addSkill(ele_schema : any)
+  addElement(ele_schema : any)
   {
     (<FormArray>this.myForm.get(ele_schema.name)).push(new FormControl(null));
   }
@@ -83,7 +82,8 @@ export class AppComponent {
 
   onCheckboxClick()
   {
-    console.log("chekbox clicked", this.myForm.get('check_add'))
+    this.isSubmit = false;
+    // console.log("chekbox clicked", this.myForm.get('check_add'))
     if(this.myForm.get('check_add')?.value == true )
       this.myForm.get('o_add')?.setValue( this.myForm.value['h_add']);
     else
