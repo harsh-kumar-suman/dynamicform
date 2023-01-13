@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
 
+## UI
+
+![alt text](https://github.com/harsh-kumar-suman/dynamicform/blob/master/UI.png?raw=true)
+
+## Features
+* Has all the required validators (e.g. email validator, required field validators)
+* Uses FormArray to add mutiple fields in case of skills and courses taken.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
