@@ -1,0 +1,21 @@
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+input.ng-invalid.ng-touched {
+    border: red 2px solid;
+}
+
+.ng-submitted input.ng-invalid {
+    border: red 2px solid;
+}
+
+.container-fluid {
+    width: 50vw;
+    background: rgb(239, 228, 219);
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    margin-left: -25vw; /* half of you width */
+    border-radius: 1%;
+    padding: 30px;
+    
+}
