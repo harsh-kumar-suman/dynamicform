@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { jsondata } from './data';
+import { FormService } from './formservice';
+
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,10 @@ export class AppComponent {
   isSubmit : boolean = false;
   public myForm: FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private formservice : FormService) {}
 
   ngOnInit() {
-    this.formschema = jsondata;
+    this.formschema = this.formservice.getData();
     this.formUtility(this.formschema);
   }
 
@@ -39,7 +40,7 @@ export class AppComponent {
   createForm(schema: any[]){
     for (const field of schema) {
 
-      console.log("printing schema ", field['name'])
+      // console.log("printing schema ", field['name'])
 
       const validators = [];
 
@@ -55,6 +56,17 @@ export class AppComponent {
       else 
         this.myForm.addControl(field.name,control)
     } 
+  }
+
+  onChange(field: any)
+  {
+    // console.log("calling onChange with field name = ", field.name)
+    this.isSubmit = false;
+    if(field.name == "h_add" && this.myForm.value['check_add']==true)
+    {
+      // console.log("condition true");
+      this.myForm.get('o_add')?.setValue( this.myForm.value['h_add']);
+    }
   }
 
   addSkill(ele_schema : any)
